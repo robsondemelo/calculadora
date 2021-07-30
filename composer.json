@@ -1,0 +1,13 @@
+{
+    "name": "alfa/gitflow",
+    "description": "Projeto utilizado aula gitflow",
+    "authors": [
+        {
+            "name": "Robson Melo",
+            "email": "melodisouza@gmail.com"
+        }
+    ],
+    "require": {
+        "league/climate": "^3.7"
+    }
+}
