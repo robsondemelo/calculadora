@@ -21,13 +21,14 @@ $padding = $climate->padding(20);
 
 $padding->label('Somar Valores')->result('[1]');
 $padding->label('Subtrair Valores')->result('[2]');
+$padding->label('Multiplicar Valores')->result('[3]');
 $padding->label('Sair')->result('[q]');
 
 $climate->br();
 
 $input = $climate->input('Selecione uma opção do MENU');
 
-$input->accept([1, 2, 'q']);
+$input->accept([1, 2, 3, 'q']);
 $input->strict();
 
 $response = $input->prompt();
@@ -60,6 +61,21 @@ switch($response) {
 
         $climate->output(sprintf('Subtração de %s com %s é igual: %s ', $valorPrimeiroNumero, $valorSegundoNumero, $subtrair));
         break;
+
+    case '3':
+        $primeiroNumero = $climate->input('Primeiro valor:');
+        $primeiroNumero->accept($numeroPositivo);
+        $valorPrimeiroNumero =$primeiroNumero->prompt();
+
+        $segundoNumero = $climate->input('Segundo valor:');
+        $segundoNumero->accept($numeroPositivo);
+        $valorSegundoNumero = $segundoNumero->prompt();
+
+        $multiplicar = $valorPrimeiroNumero * $valorSegundoNumero;
+
+        $climate->output(sprintf('Multiplicação de %s com %s é igual: %s ', $valorPrimeiroNumero, $valorSegundoNumero, $multiplicar));
+        break;
+ 
 
         default:
         $climate->out('Sistema encerrado.');
